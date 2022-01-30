@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: resilio-sync
+  namespace: resilio
+  labels:
+    app: resilio-sync
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: resilio-sync
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: resilio-sync
+    spec:
+      volumes:
+        - name: default
+          persistentVolumeClaim:
+            claimName: resilio-sync-claim
+      containers:
+        - name: resilio-sync
+          image: linuxserver/resilio-sync
+          env:
+            - name: PUID
+              value: "1000"
+            - name: PGID
+              value: "1000"
+          ports:
+            - containerPort: 8888
+              name: "http-server"
+          volumeMounts:
+            - name: default
+              mountPath: /sync
+              subPath: sync
+            - name: default
+              mountPath: /config
+              subPath: config
