@@ -1,2 +1,4 @@
 resources:
+  - cert-manager
+  - nginx
   - resilio-sync
