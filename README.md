@@ -26,7 +26,4 @@ Infrastructure as code for RPi4 k8s cluster.
 
 ## Deploy workloads
 
-Run within this repository:
-```
-kubectl apply -k .
-```
+Run `make` to apply configuration.
