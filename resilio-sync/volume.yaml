@@ -9,7 +9,7 @@ spec:
   storageClassName: local-storage
   persistentVolumeReclaimPolicy: Retain
   local:
-    path: "/mnt/resilio-sync"
+    path: "/mnt/disk1/resilio-sync"
   capacity:
     storage: 500G
   accessModes:

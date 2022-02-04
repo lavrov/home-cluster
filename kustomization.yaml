@@ -2,4 +2,5 @@ resources:
   - cert-manager
   - nginx
   - syncthing
+  - resilio-sync
   - github.com/kubenav/deploy/kustomize
