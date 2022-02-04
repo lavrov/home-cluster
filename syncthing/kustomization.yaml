@@ -1,0 +1,6 @@
+resources:
+  - namespace.yaml
+  - volume.yaml
+  - volume-claim.yaml
+  - deployment.yaml
+  - service.yaml
