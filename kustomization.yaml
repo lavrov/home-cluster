@@ -4,3 +4,4 @@ resources:
   - syncthing
   - resilio-sync
   - github.com/kubenav/deploy/kustomize
+  - redis
