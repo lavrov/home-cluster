@@ -26,4 +26,4 @@ Infrastructure as code for RPi4 k8s cluster.
 
 ## Deploy workloads
 
-Run `make` to apply configuration.
+Run `make` to apply [kustomizations](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
