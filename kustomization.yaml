@@ -5,3 +5,4 @@ resources:
   - resilio-sync
   - github.com/kubenav/deploy/kustomize
   - redis
+  - home-assistant
