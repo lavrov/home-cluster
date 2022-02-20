@@ -4,10 +4,8 @@ metadata:
   name: resilio-sync
   namespace: resilio
 spec:
-  type: NodePort
   selector:
     app: resilio-sync
   ports:
     - port: 80
       targetPort: http-server
-      nodePort: 30000
