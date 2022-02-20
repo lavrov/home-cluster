@@ -1,9 +1,3 @@
 resources:
-  - cert-manager
-  - nginx
-  - syncthing
-  - resilio-sync
-  - github.com/kubenav/deploy/kustomize
-  - redis
-  - home-assistant
-  - wireguard.yaml
+  - system
+  - apps

@@ -4,4 +4,4 @@ apply:
 	kubectl apply -k .
 
 apply-helm:
-	kubectl kustomize --enable-helm transmission | kubectl apply -f -
+	kubectl kustomize --enable-helm apps/transmission | kubectl apply -f -
