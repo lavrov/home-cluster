@@ -1,0 +1,12 @@
+resources:
+  - namespace.yaml
+  - redis.yaml
+  - authelia.yaml
+configMapGenerator:
+  - name: config
+    namespace: authelia
+    files:
+      - config/configuration.yml
+      - config/users_database.yml
+    options:
+      disableNameSuffixHash: true
