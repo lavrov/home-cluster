@@ -1,4 +1,5 @@
 resources:
   - cert-manager
   - wireguard.yaml
+  - wireguard-public.yaml
   - authelia
