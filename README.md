@@ -23,6 +23,25 @@ Infrastructure as code for RPi4 k8s cluster.
     scp ubuntu@<ip-address>:/etc/rancher/k3s/k3s.yaml ~/.kube/config
     ```
    This gives you `kubectl`.
+7. Configure [local-path-provisioner](https://github.com/rancher/local-path-provisioner) node paths:
+   ```
+   kubectl edit cm local-path-config -n kube-system
+   ```
+   ```yaml
+      apiVersion: v1
+      data:
+         config.json: |-
+            {
+               "nodePathMap":[
+                  {
+                     "node":"rpi0",
+                     "paths":["/mnt/disk2"]
+                  }
+               ]
+            }
+      ...
+   ```
+   
 
 ## Deploy workloads
 
