@@ -1,3 +1,5 @@
 resources:
   - namespace.yaml
   - postgres.yaml
+generators:
+  - secret-generator.yaml
