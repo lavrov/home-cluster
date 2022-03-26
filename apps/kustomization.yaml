@@ -5,3 +5,4 @@ resources:
   - github.com/kubenav/deploy/kustomize
   - home-assistant
   - matrix
+  - torrentdam
