@@ -23,13 +23,21 @@ spec:
             - containerPort: 9091
           volumeMounts:
             - name: config
-              mountPath: /config
+              mountPath: /config/configuration.yml
+              subPath: configuration.yml
+            - name: users
+              mountPath: /config/users_database.yml
+              subPath: users_database.yml
             - name: data
               mountPath: /data
       volumes:
         - name: config
           configMap:
             name: config
+        - name: users
+          secret:
+            secretName: users
+            optional: false
         - name: data
           persistentVolumeClaim:
             claimName: authelia-data-claim

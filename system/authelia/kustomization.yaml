@@ -6,7 +6,8 @@ configMapGenerator:
   - name: config
     namespace: authelia
     files:
-      - config/configuration.yml
-      - config/users_database.yml
+      - configuration.yml=config/configuration.yaml
     options:
       disableNameSuffixHash: true
+generators:
+  - secret-generator.yaml

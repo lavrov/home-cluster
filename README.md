@@ -46,6 +46,8 @@ Infrastructure as code for RPi4 k8s cluster.
    wget 'https://github.com/mozilla/sops/releases/download/v3.7.2/sops-v3.7.2.linux.amd64' -O /usr/local/bin/sops
    chmod a+x /usr/local/bin/sops
    ```
+9. Install sopssecretgenerator
+   https://github.com/goabout/kustomize-sopssecretgenerator#installation
    
 
 ## Deploy workloads
