@@ -36,6 +36,14 @@ Infrastructure as code for RPi4 k8s cluster.
                   {
                      "node":"rpi0",
                      "paths":["/mnt/disk2"]
+                  },
+                  {
+                     "node":"rpi1",
+                     "paths":["/mnt/disk2"]
+                  },
+                  {
+                     "node":"rpi2",
+                     "paths":["/mnt/disk2"]
                   }
                ]
             }
