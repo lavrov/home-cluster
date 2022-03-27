@@ -26,7 +26,12 @@ access_control:
   default_policy: deny
   rules:
     # Rules applied to everyone
-    - domain: ["home.lavrov.org", "*.home.lavrov.org"]
+    - domain:
+        - "torrents.home.lavrov.org"
+      policy: bypass
+    - domain:
+        - "home.lavrov.org"
+        - "*.home.lavrov.org"
       policy: two_factor
 
 session:

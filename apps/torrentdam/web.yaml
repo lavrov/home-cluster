@@ -45,10 +45,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "torrent.home.lavrov.org"
+        - "torrents.home.lavrov.org"
       secretName: nginx-tls
   rules:
-    - host: "torrent.home.lavrov.org"
+    - host: "torrents.home.lavrov.org"
       http:
         paths:
           - path: /
