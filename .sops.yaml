@@ -3,6 +3,6 @@ creation_rules:
     encrypted_regex: ^(data|stringData|password|email)$
     pgp: >-
       879FC04B66AEEA7EC0EE6D2B328CF2D5367AF324
-  - path_regex: .*.enc.txt
+  - path_regex: .*.enc.(txt|env)
     pgp: >-
       879FC04B66AEEA7EC0EE6D2B328CF2D5367AF324

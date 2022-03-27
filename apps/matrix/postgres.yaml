@@ -12,25 +12,16 @@ spec:
   database:
     size: 1G
 
+
   env:
     - name: POSTGRES_PASSWORD
       valueFrom:
         secretKeyRef:
           name: postgres
-          key: superUserPassword
+          key: POSTGRES_PASSWORD
 
     - name: POSTGRES_REPLICATION_PASSWORD
       valueFrom:
         secretKeyRef:
           name: postgres
-          key: replicationUserPassword
-  scheduler:
-    affinity:
-      nodeAffinity:
-        requiredDuringSchedulingIgnoredDuringExecution:
-          nodeSelectorTerms:
-            - matchExpressions:
-                - key: kubernetes.io/hostname
-                  operator: In
-                  values:
-                    - rpi0
+          key: POSTGRES_REPLICATION_PASSWORD
