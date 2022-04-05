@@ -1,0 +1,60 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server
+  namespace: torrentdam
+spec:
+  selector:
+    matchLabels:
+      app: server
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: server
+    spec:
+      containers:
+        - name: server
+          image: ghcr.io/torrentdamdev/server:c430f9ccdfd63f188ea9192c0c4e3346c32ca540
+          ports:
+            - containerPort: 9999
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server
+  namespace: torrentdam
+spec:
+  selector:
+    app: server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9999
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: server
+  namespace: torrentdam
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    kubernetes.io/ingress.class: traefik
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: authelia-auth@kubernetescrd
+spec:
+  tls:
+    - hosts:
+        - "server.torrents.home.lavrov.org"
+      secretName: server-tls
+  rules:
+    - host: "server.torrents.home.lavrov.org"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: server
+                port:
+                  number: 80
