@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: indexer
+  namespace: torrentdam
+spec:
+  selector:
+    matchLabels:
+      app: indexer
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: indexer
+    spec:
+      containers:
+        - name: indexer
+          image: ghcr.io/torrentdam/indexer:ec3a7721fc831c28929d67e4fd2283cef74811a5
+          resources:
+            requests:
+              memory: 200M
+              cpu: 250m
+            limits:
+              memory: 300M
+              cpu: 500m
+          volumeMounts:
+            - name: metadata
+              mountPath: /data
+      volumes:
+        - name: metadata
+          persistentVolumeClaim:
+            claimName: metadata
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: metadata
+  namespace: torrentdam
+spec:
+  storageClassName: local-path
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10G

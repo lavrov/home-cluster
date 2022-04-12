@@ -18,6 +18,13 @@ spec:
           image: ghcr.io/torrentdamdev/server:c430f9ccdfd63f188ea9192c0c4e3346c32ca540
           ports:
             - containerPort: 9999
+          resources:
+            requests:
+              memory: 200M
+              cpu: 250m
+            limits:
+              memory: 500M
+              cpu: 500m
 ---
 apiVersion: v1
 kind: Service
