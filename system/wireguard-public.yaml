@@ -76,6 +76,8 @@ spec:
       hostPath:
         path: /lib/modules
         type: Directory
+  nodeSelector:
+    "kubernetes.io/hostname": rpi0
 ---
 kind: Service
 apiVersion: v1

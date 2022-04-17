@@ -1,7 +1,9 @@
 default: apply apply-helm
 
-apply:
-	kubectl kustomize --enable-alpha-plugins . | kubectl apply -f -
+apply: apply-system apply-apps
 
-apply-helm:
-	kubectl kustomize --enable-helm apps/transmission | kubectl apply -f -
+apply-apps:
+	kubectl kustomize --enable-alpha-plugins apps | kubectl apply -f -
+
+apply-system:
+	kubectl kustomize --enable-alpha-plugins system | kubectl apply -f -

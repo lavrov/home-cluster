@@ -4,3 +4,4 @@ resources:
   - wireguard-public.yaml
   - authelia
   - https://raw.githubusercontent.com/reactive-tech/kubegres/v1.15/kubegres.yaml
+  - github.com/kubenav/deploy/kustomize
