@@ -1,4 +1,4 @@
-default: apply apply-helm
+default: apply
 
 apply: apply-system apply-apps
 
