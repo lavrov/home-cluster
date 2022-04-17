@@ -1,5 +1,7 @@
+namespace: torrentdam
 resources:
   - namespace.yaml
   - web.yaml
   - server.yaml
   - indexer.yaml
+  - nats
