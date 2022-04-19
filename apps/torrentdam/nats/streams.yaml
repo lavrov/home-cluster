@@ -18,3 +18,4 @@ spec:
   filterSubject: discovered
   deliverPolicy: all
   ackPolicy: explicit
+  ackWait: 60s

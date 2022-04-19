@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: indexer
-          image: ghcr.io/torrentdam/indexer:ec3a7721fc831c28929d67e4fd2283cef74811a5
+          image: ghcr.io/torrentdam/indexer:7ba73c4a20fdaefbacb3eb6dc8d42eafe053ddb7
           resources:
             requests:
               memory: 200M
@@ -23,13 +23,9 @@ spec:
             limits:
               memory: 300M
               cpu: 500m
-          volumeMounts:
-            - name: metadata
-              mountPath: /data
-      volumes:
-        - name: metadata
-          persistentVolumeClaim:
-            claimName: metadata
+          env:
+            - name: NATS_SERVER
+              value: nats://nats.torrentdam.svc.cluster.local:4222
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
