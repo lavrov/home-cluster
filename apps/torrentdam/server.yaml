@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: ghcr.io/torrentdam/server:e5385410bb867fb16ef51ea466e584dcb6705ffe
+          image: ghcr.io/torrentdam/server:b530ceaa85b062096a42bfd623f905df93fc5262
           ports:
             - containerPort: 9999
               name: http
