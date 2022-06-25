@@ -6,7 +6,8 @@ metadata:
 data:
   config.js: |
     export default {
-      server: "server.torrents.home.lavrov.org"
+      server: "server.torrents.home.lavrov.org",
+      secure: true
     }
 ---
 apiVersion: apps/v1
