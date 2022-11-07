@@ -52,12 +52,7 @@ Infrastructure as code for RPi4 k8s cluster.
 
 ## Deploy workloads
 
-Nix Shell is provided to facilitate deployment of workloads:
-   ```
-   nix develop
-   make
-   ```
-The tools are available in the shell:
+Nix Shell is provided to facilitate deployment of workloads. The following tools are available in the shell:
    - `kubectl`
    - `kustomize`
    - [sops](https://github.com/mozilla/sops)
@@ -65,4 +60,5 @@ The tools are available in the shell:
    - `render-config`, script to print out rendered k8s configs
    - `apply-config`, script to apply configurations to the cluster
 
-Run `make` to apply [kustomizations](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
+Run `apply-config` to apply [kustomizations](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
+One can choose to apply only certain kustomizations by passing a path to them as an argument.
