@@ -49,15 +49,20 @@ Infrastructure as code for RPi4 k8s cluster.
             }
       ...
    ```
-8. Install SOPS
-   ```
-   wget 'https://github.com/mozilla/sops/releases/download/v3.7.2/sops-v3.7.2.linux.amd64' -O /usr/local/bin/sops
-   chmod a+x /usr/local/bin/sops
-   ```
-9. Install sopssecretgenerator
-   https://github.com/goabout/kustomize-sopssecretgenerator#installation
-   
 
 ## Deploy workloads
+
+Nix Shell is provided to facilitate deployment of workloads:
+   ```
+   nix develop
+   make
+   ```
+The tools are available in the shell:
+   - `kubectl`
+   - `kustomize`
+   - [sops](https://github.com/mozilla/sops)
+   - [sops-secret-generator](https://github.com/goabout/kustomize-sopssecretgenerator)
+   - `render-config`, script to print out rendered k8s configs
+   - `apply-config`, script to apply configurations to the cluster
 
 Run `make` to apply [kustomizations](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
