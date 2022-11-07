@@ -3,5 +3,5 @@ resources:
   - namespace.yaml
   - web.yaml
   - server.yaml
-  - indexer.yaml
-  - nats
+#  - indexer.yaml
+#  - nats
