@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: ghcr.io/torrentdam/server:797ef384bc9f9c7503ca9b0a24f9bb45622b8646
+          image: ghcr.io/torrentdam/server:180e8182fbd35fde92544435ad7a039709141567
           ports:
             - containerPort: 9999
               name: http
@@ -39,6 +39,21 @@ kind: Service
 metadata:
   name: server
   namespace: torrentdam
+  annotations:
+    traefik.ingress.kubernetes.io/service.serversscheme: h2c
+spec:
+  selector:
+    app: server
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 9999
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: server-ws
+  namespace: torrentdam
 spec:
   selector:
     app: server
@@ -57,6 +72,7 @@ metadata:
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: authelia-auth@kubernetescrd
+    ingress.kubernetes.io/protocol: h2c
 spec:
   tls:
     - hosts:
@@ -66,6 +82,13 @@ spec:
     - host: "server.torrents.home.lavrov.org"
       http:
         paths:
+          - path: /ws
+            pathType: Prefix
+            backend:
+              service:
+                name: server-ws
+                port:
+                  number: 80
           - path: /
             pathType: Prefix
             backend:
