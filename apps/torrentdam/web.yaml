@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: nginx
-          image: ghcr.io/torrentdam/web:c39b637f607b12e31843fe12eb7ee89a7e78ba2f
+          image: ghcr.io/torrentdam/web:b38464cd21fdf0186abe67787acde9940ac0999b
           ports:
             - containerPort: 80
           volumeMounts:
