@@ -1,0 +1,42 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: jellyfin
+spec:
+  selector:
+    matchLabels:
+      app: jellyfin
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: jellyfin
+    spec:
+      containers:
+        - name: jellyfin
+          image: lscr.io/linuxserver/jellyfin:latest
+          env:
+            - name: PGID
+              value: "1000"
+            - name: PUID
+              value: "1000"
+            - name: TZ
+              value: Europe/Amsterdam
+          ports:
+            - containerPort: 8096
+              name: http
+            - containerPort: 7359
+              name: discovery
+              protocol: UDP
+          volumeMounts:
+            - mountPath: /data/movies
+              name: movies
+            - mountPath: /config
+              name: config
+      volumes:
+        - name: movies
+          persistentVolumeClaim:
+            claimName: movies-claim
+        - name: config
+          persistentVolumeClaim:
+            claimName: config-claim
