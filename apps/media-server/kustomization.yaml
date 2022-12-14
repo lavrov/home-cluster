@@ -1,7 +1,7 @@
 namespace: media-server
 resources:
   - namespace.yaml
-  - deployment.yaml
-  - service.yaml
   - ingress.yaml
-  - volume.yaml
+  - jellyfin
+  - jackett
+  - radarr

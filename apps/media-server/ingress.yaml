@@ -6,10 +6,13 @@ metadata:
     cert-manager.io/cluster-issuer: letsencrypt
     kubernetes.io/ingress.class: traefik
     traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: authelia-auth@kubernetescrd
 spec:
   tls:
     - hosts:
-      - "media.home.lavrov.org"
+        - "media.home.lavrov.org"
+        - "jackett.media.home.lavrov.org"
+        - "radarr.media.home.lavrov.org"
       secretName: jellyfin-tls
   rules:
     - host: "media.home.lavrov.org"
@@ -20,5 +23,25 @@ spec:
             backend:
               service:
                 name: jellyfin
+                port:
+                  number: 80
+    - host: "jackett.media.home.lavrov.org"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jackett
+                port:
+                  number: 80
+    - host: "radarr.media.home.lavrov.org"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: radarr
                 port:
                   number: 80
