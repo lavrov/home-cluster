@@ -61,5 +61,8 @@ storage:
 
 notifier:
   disable_startup_check: false
-  filesystem:
-    filename: /data/notification
+  smtp:
+    host: smtp.mail.svc.cluster.local
+    port: 25
+    sender: authelia@home.lavrov.org
+    disable_require_tls: true
