@@ -1,0 +1,7 @@
+namespace: mail
+resources:
+  - namespace.yaml
+  - deployment.yaml
+  - service.yaml
+generators:
+  - secret-generator.yaml

@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: postfix
+spec:
+  selector:
+    matchLabels:
+      app: postfix
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: postfix
+    spec:
+      containers:
+        - name: postfix
+          image: juanluisbaptiste/postfix:latest
+          envFrom:
+            - secretRef:
+                name: postfix
+          ports:
+            - containerPort: 25
+              name: smtp
