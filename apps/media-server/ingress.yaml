@@ -13,6 +13,7 @@ spec:
         - "media.home.lavrov.org"
         - "jackett.media.home.lavrov.org"
         - "radarr.media.home.lavrov.org"
+        - "downloads.media.home.lavrov.org"
       secretName: jellyfin-tls
   rules:
     - host: "media.home.lavrov.org"
@@ -43,5 +44,15 @@ spec:
             backend:
               service:
                 name: radarr
+                port:
+                  number: 80
+    - host: "downloads.media.home.lavrov.org"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: filebrowser
                 port:
                   number: 80

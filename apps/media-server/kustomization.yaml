@@ -2,6 +2,8 @@ namespace: media-server
 resources:
   - namespace.yaml
   - ingress.yaml
+  - volume.yaml
   - jellyfin
   - jackett
   - radarr
+  - filebrowser

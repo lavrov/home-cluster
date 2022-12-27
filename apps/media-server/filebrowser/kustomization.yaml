@@ -1,0 +1,4 @@
+namespace: media-server
+resources:
+  - deployment.yaml
+  - service.yaml
