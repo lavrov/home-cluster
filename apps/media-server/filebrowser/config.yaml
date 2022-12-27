@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+data:
+  settings.json: |
+    {
+      "port": 8080,
+      "baseURL": "",
+      "address": "0.0.0.0",
+      "log": "stdout",
+      "root": "/srv",
+      "noauth": true
+    }

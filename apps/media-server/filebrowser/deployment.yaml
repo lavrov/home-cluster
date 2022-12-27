@@ -21,12 +21,20 @@ spec:
             - name: PUID
               value: "1000"
           ports:
-            - containerPort: 80
+            - containerPort: 8080
               name: http
           volumeMounts:
-            - mountPath: /svc
+            - mountPath: /srv
               name: downloads
+            - mountPath: /config
+              name: config
       volumes:
         - name: downloads
           persistentVolumeClaim:
             claimName: downloads-claim
+        - name: config
+          configMap:
+            name: config
+            items:
+              - key: settings.json
+                path: settings.json
