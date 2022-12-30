@@ -25,15 +25,21 @@ authentication_backend:
 access_control:
   default_policy: deny
   rules:
-    # Rules applied to everyone
     - domain:
         - "torrents.home.lavrov.org"
         - "*.torrents.home.lavrov.org"
       policy: bypass
     - domain:
+        - "media.home.lavrov.org"
+      policy: one_factor
+      subject:
+        - 'group:non-trusted'
+    - domain:
         - "home.lavrov.org"
         - "*.home.lavrov.org"
       policy: two_factor
+      subject:
+        - 'group:trusted'
 
 session:
   name: authelia_session
