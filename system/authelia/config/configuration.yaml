@@ -30,7 +30,7 @@ access_control:
         - "*.torrents.home.lavrov.org"
       policy: bypass
     - domain:
-        - "media.home.lavrov.org"
+        - "*.media.home.lavrov.org"
       policy: one_factor
       subject:
         - 'group:non-trusted'
