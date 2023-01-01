@@ -33,6 +33,12 @@ spec:
               name: movies
             - mountPath: /config
               name: config
+            - mountPath: /dev/video10
+              name: device-video10
+            - mountPath: /dev/video11
+              name: device-video11
+            - mountPath: /dev/video12
+              name: device-video12
       volumes:
         - name: movies
           persistentVolumeClaim:
@@ -40,3 +46,12 @@ spec:
         - name: config
           persistentVolumeClaim:
             claimName: config-claim
+        - name: device-video10
+          hostPath:
+            path: /dev/video10
+        - name: device-video11
+          hostPath:
+            path: /dev/video11
+        - name: device-video12
+          hostPath:
+            path: /dev/video12
