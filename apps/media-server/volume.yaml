@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: downloads-claim
+  name: movies
 spec:
-  storageClassName: local-path
   accessModes:
     - ReadWriteOnce
+  storageClassName: nfs
   resources:
     requests:
-      storage: 5G
+      storage: 100Gi

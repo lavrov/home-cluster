@@ -25,13 +25,13 @@ spec:
               name: http
           volumeMounts:
             - mountPath: /srv
-              name: downloads
+              name: movies
             - mountPath: /config
               name: config
       volumes:
-        - name: downloads
+        - name: movies
           persistentVolumeClaim:
-            claimName: downloads-claim
+            claimName: movies
         - name: config
           configMap:
             name: config

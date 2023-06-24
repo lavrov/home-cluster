@@ -42,7 +42,7 @@ spec:
       volumes:
         - name: movies
           persistentVolumeClaim:
-            claimName: movies-claim
+            claimName: movies
         - name: config
           persistentVolumeClaim:
             claimName: config-claim

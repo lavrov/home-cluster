@@ -52,7 +52,11 @@ Infrastructure as code for RPi4 k8s cluster.
 
 ## Deploy workloads
 
-Nix Shell is provided to facilitate deployment of workloads. The following tools are available in the shell:
+Nix Shell is provided to facilitate deployment of workloads:
+   
+    nix develop
+
+The following tools are available in the shell:
    - `kubectl`
    - `kustomize`
    - [sops](https://github.com/mozilla/sops)
