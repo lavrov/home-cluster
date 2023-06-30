@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: config-claim
+  name: jellyfin-config
 spec:
-  storageClassName: local-path
+  storageClassName: nfs
   accessModes:
     - ReadWriteOnce
   resources:

@@ -9,10 +9,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "media.home.lavrov.org"
+        - "jellyfin.home.lavrov.org"
       secretName: jellyfin-tls
   rules:
-    - host: "media.home.lavrov.org"
+    - host: "jellyfin.home.lavrov.org"
       http:
         paths:
           - path: /
