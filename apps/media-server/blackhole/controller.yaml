@@ -53,3 +53,11 @@ spec:
         - name: blackhole
           image: ghcr.io/torrentdam/blackhole:latest
           imagePullPolicy: Always
+          volumeMounts:
+            - mountPath: /data/torrents
+              subPath: torrents
+              name: movies
+      volumes:
+        - name: movies
+          persistentVolumeClaim:
+            claimName: movies
