@@ -11,9 +11,9 @@ kind: ClusterRole
 metadata:
   name: blackhole
 rules:
-  - apiGroups: [""]
+  - apiGroups: ["batch"]
     resources:
-      - pods
+      - jobs
     verbs:
       - create
       - get
@@ -52,10 +52,10 @@ spec:
       containers:
         - name: blackhole
           image: ghcr.io/torrentdam/blackhole:latest
+          workingDir: /data
           imagePullPolicy: Always
           volumeMounts:
-            - mountPath: /data/torrents
-              subPath: torrents
+            - mountPath: /data
               name: movies
       volumes:
         - name: movies
