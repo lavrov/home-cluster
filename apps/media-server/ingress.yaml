@@ -37,7 +37,7 @@ spec:
     - hosts:
         - "jackett.media.home.lavrov.org"
         - "radarr.media.home.lavrov.org"
-        - "downloads.media.home.lavrov.org"
+        - "files.media.home.lavrov.org"
       secretName: ingress-tls
   rules:
     - host: "jackett.media.home.lavrov.org"
@@ -60,7 +60,7 @@ spec:
                 name: radarr
                 port:
                   number: 80
-    - host: "downloads.media.home.lavrov.org"
+    - host: "files.media.home.lavrov.org"
       http:
         paths:
           - path: /
