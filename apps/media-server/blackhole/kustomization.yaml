@@ -1,3 +1,4 @@
 namespace: media-server
 resources:
-  - controller.yaml
+  - github.com/torrentdam/blackhole/kustomize
+  - blackhole.yaml

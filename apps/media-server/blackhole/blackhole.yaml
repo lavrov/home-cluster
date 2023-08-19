@@ -1,0 +1,13 @@
+apiVersion: torrentdam.org/v1
+kind: Blackhole
+metadata:
+  namespace: media-server
+  name: blackhole
+spec:
+  resources:
+    requests:
+      cpu: "2"
+      memory: 500M
+    limits:
+      cpu: "2"
+      memory: 1G
