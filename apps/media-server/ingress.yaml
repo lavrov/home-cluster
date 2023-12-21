@@ -10,9 +10,20 @@ spec:
   tls:
     - hosts:
         - "jellyfin.home.lavrov.org"
+        - "jellyfin.lavrov.nl"
       secretName: jellyfin-tls
   rules:
     - host: "jellyfin.home.lavrov.org"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: jellyfin
+                port:
+                  number: 80
+    - host: "jellyfin.lavrov.nl"
       http:
         paths:
           - path: /
@@ -35,12 +46,12 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "jackett.media.home.lavrov.org"
-        - "radarr.media.home.lavrov.org"
-        - "files.media.home.lavrov.org"
+        - "jackett.media.lavrov.nl"
+        - "radarr.media.lavrov.nl"
+        - "files.media.lavrov.nl"
       secretName: ingress-tls
   rules:
-    - host: "jackett.media.home.lavrov.org"
+    - host: "jackett.media.lavrov.nl"
       http:
         paths:
           - path: /
@@ -50,7 +61,7 @@ spec:
                 name: jackett
                 port:
                   number: 80
-    - host: "radarr.media.home.lavrov.org"
+    - host: "radarr.media.lavrov.nl"
       http:
         paths:
           - path: /
@@ -60,7 +71,7 @@ spec:
                 name: radarr
                 port:
                   number: 80
-    - host: "files.media.home.lavrov.org"
+    - host: "files.media.lavrov.nl"
       http:
         paths:
           - path: /

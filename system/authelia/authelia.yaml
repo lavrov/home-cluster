@@ -80,10 +80,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "auth.home.lavrov.org"
+        - "auth.lavrov.nl"
       secretName: auth-tls
   rules:
-    - host: "auth.home.lavrov.org"
+    - host: "auth.lavrov.nl"
       http:
         paths:
           - backend:
@@ -101,4 +101,4 @@ metadata:
   namespace: authelia
 spec:
   forwardAuth:
-    address: http://authelia.authelia.svc.cluster.local/api/verify?rd=https://auth.home.lavrov.org
+    address: http://authelia.authelia.svc.cluster.local/api/verify?rd=https://auth.lavrov.nl

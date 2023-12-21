@@ -6,7 +6,7 @@ metadata:
 data:
   config.js: |
     export default {
-      server: "server.torrents.home.lavrov.org",
+      server: "server.torrents.lavrov.nl",
       secure: true
     }
 ---
@@ -65,10 +65,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "torrents.home.lavrov.org"
+        - "torrents.lavrov.nl"
       secretName: nginx-tls
   rules:
-    - host: "torrents.home.lavrov.org"
+    - host: "torrents.lavrov.nl"
       http:
         paths:
           - path: /

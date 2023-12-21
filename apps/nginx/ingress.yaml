@@ -10,10 +10,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - "home.lavrov.org"
+      - "lavrov.nl"
       secretName: nginx-tls
   rules:
-    - host: "home.lavrov.org"
+    - host: "lavrov.nl"
       http:
         paths:
           - path: /

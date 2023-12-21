@@ -76,10 +76,10 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "server.torrents.home.lavrov.org"
+        - "server.torrents.lavrov.nl"
       secretName: server-tls
   rules:
-    - host: "server.torrents.home.lavrov.org"
+    - host: "server.torrents.lavrov.nl"
       http:
         paths:
           - path: /ws

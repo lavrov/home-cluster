@@ -1,5 +1,5 @@
 jwt_secret: a_very_important_secret
-default_redirection_url: https://home.lavrov.org
+default_redirection_url: https://lavrov.nl
 
 server:
   host: 0.0.0.0
@@ -26,17 +26,17 @@ access_control:
   default_policy: deny
   rules:
     - domain:
-        - "torrents.home.lavrov.org"
-        - "*.torrents.home.lavrov.org"
+        - "torrents.lavrov.nl"
+        - "*.torrents.lavrov.nl"
       policy: bypass
     - domain:
-        - "*.media.home.lavrov.org"
+        - "*.media.lavrov.nl"
       policy: one_factor
       subject:
         - 'group:non-trusted'
     - domain:
-        - "home.lavrov.org"
-        - "*.home.lavrov.org"
+        - "lavrov.nl"
+        - "*.lavrov.nl"
       policy: two_factor
       subject:
         - 'group:trusted'
@@ -47,7 +47,7 @@ session:
   secret: unsecure_session_secret
   expiration: 86400  # 24 hours
   inactivity: 3600  # 1 hour
-  domain: home.lavrov.org  # Should match whatever your root protected domain is
+  domain: lavrov.nl  # Should match whatever your root protected domain is
 
   redis:
     host: redis
