@@ -62,6 +62,10 @@
         pkgs.writeShellScriptBin "apply-config" ''
           kustomize build --enable-alpha-plugins --enable-exec $1 | kubectl apply -f -
         '';
+      apply-config-server-side =
+        pkgs.writeShellScriptBin "apply-config-server-side" ''
+          kustomize build --enable-alpha-plugins --enable-exec $1 | kubectl apply --server-side=true -f -
+        '';
     in {
       devShells.${system}.default =
         pkgs.mkShell {
@@ -73,6 +77,7 @@
             ksops
             # custom helper commands
             apply-config
+            apply-config-server-side
             render-config
           ];
         };

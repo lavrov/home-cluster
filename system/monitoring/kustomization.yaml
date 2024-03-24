@@ -1,0 +1,4 @@
+namespace: monitoring
+resources:
+#  - github.com/prometheus-operator/kube-prometheus
+  - ingress.yaml
