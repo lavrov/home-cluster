@@ -1,4 +1,5 @@
-namespace: monitoring
 resources:
-#  - github.com/prometheus-operator/kube-prometheus
+  - github.com/prometheus-operator/kube-prometheus
   - ingress.yaml
+  - grafana-networkPolicy.yaml
+#  - github.com/prometheus-operator/prometheus-operator
