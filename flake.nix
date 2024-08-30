@@ -6,10 +6,10 @@
       sops =
         pkgs.stdenv.mkDerivation rec {
           pname = "sops";
-          version = "3.7.3";
+          version = "3.9.0";
           src = pkgs.fetchurl {
             url = "https://github.com/mozilla/sops/releases/download/v${version}/sops-v${version}.darwin.arm64";
-            sha256 = "vpziZcfz07U0U10qXve0FgC/K4JBsaT5XkiATSBiiy4=";
+            sha256 = "cvnVm4JaIKwAGfNwwYsyZWCLGwonG8BS9gB8RblSEv0=";
           };
           phases = ["installPhase"];
           installPhase = ''

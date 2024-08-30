@@ -1,0 +1,86 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shadowsocks-rust
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shadowsocks-rust
+  template:
+    metadata:
+      labels:
+        app: shadowsocks-rust
+    spec:
+      volumes:
+        - name: config
+          secret:
+            secretName: config
+        - name: plugins
+          emptyDir: {}
+      containers:
+        - name: shadowsocks-rust
+          securityContext: {}
+          image: "ghcr.io/shadowsocks/ssserver-rust:latest"
+          imagePullPolicy: IfNotPresent
+          volumeMounts:
+            - name: config
+              mountPath: /etc/shadowsocks-rust
+              readOnly: true
+            - name: plugins
+              mountPath: /usr/local/bin
+          ports:
+            - name: ss-8388
+              containerPort: 8388
+              protocol: TCP
+          livenessProbe:
+            tcpSocket:
+              port: 8388
+            failureThreshold: 3
+            initialDelaySeconds: 1
+            timeoutSeconds: 1
+          readinessProbe:
+            tcpSocket:
+              port: 8388
+            initialDelaySeconds: 2
+          resources:
+            limits:
+              cpu: 100m
+              memory: 128Mi
+            requests:
+              cpu: 20m
+              memory: 32Mi
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: shadowsocks-rust
+  labels:
+    app: shadowsocks-rust
+spec:
+  type: NodePort
+  ports:
+    - name: ss-8388
+      port: 8388
+      protocol: TCP
+      nodePort: 31001
+  selector:
+    app: shadowsocks-rust
+---
+apiVersion: networking.k8s.io/v1
+kind: NetworkPolicy
+metadata:
+  name: shadowsocks-rust
+spec:
+  podSelector:
+    matchLabels:
+      app: shadowsocks-rust
+  policyTypes:
+    - Egress
+  egress:
+    - to:
+        - ipBlock:
+            cidr: 0.0.0.0/0
+            except:
+              - 192.168.0.0/16

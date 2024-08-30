@@ -5,3 +5,4 @@ resources:
   - matrix
   - torrentdam
   - media-server
+  - shadowsocks
