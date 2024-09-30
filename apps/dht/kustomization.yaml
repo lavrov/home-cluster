@@ -1,0 +1,4 @@
+namespace: dht
+resources:
+  - namespace.yaml
+  - server.yaml

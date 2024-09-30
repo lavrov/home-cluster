@@ -6,3 +6,4 @@ resources:
   - torrentdam
   - media-server
   - shadowsocks
+  - dht
