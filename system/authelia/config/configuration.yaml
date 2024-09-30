@@ -30,7 +30,7 @@ access_control:
         - "*.torrents.lavrov.nl"
       policy: bypass
     - domain:
-        - "*.media.lavrov.nl"
+        - "radarr.media.lavrov.nl"
       policy: one_factor
       subject:
         - 'group:non-trusted'
