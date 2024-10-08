@@ -1,5 +1,0 @@
-namespace: torrentdam
-resources:
-  - https://raw.githubusercontent.com/nats-io/nack/v0.6.1/deploy/crds.yml
-  - nats.yaml
-  - streams.yaml
