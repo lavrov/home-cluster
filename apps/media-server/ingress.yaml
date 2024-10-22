@@ -48,6 +48,7 @@ spec:
     - hosts:
         - "jackett.media.lavrov.nl"
         - "radarr.media.lavrov.nl"
+        - "tube.media.lavrov.nl"
         - "files.media.lavrov.nl"
       secretName: ingress-tls
   rules:
@@ -69,6 +70,16 @@ spec:
             backend:
               service:
                 name: radarr
+                port:
+                  name: http
+    - host: "tube.media.lavrov.nl"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: tubesync
                 port:
                   name: http
     - host: "files.media.lavrov.nl"
