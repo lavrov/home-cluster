@@ -9,20 +9,9 @@ metadata:
 spec:
   tls:
     - hosts:
-        - "jellyfin.home.lavrov.org"
         - "jellyfin.lavrov.nl"
       secretName: jellyfin-tls
   rules:
-    - host: "jellyfin.home.lavrov.org"
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: jellyfin
-                port:
-                  number: 80
     - host: "jellyfin.lavrov.nl"
       http:
         paths:
