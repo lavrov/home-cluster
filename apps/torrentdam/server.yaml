@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: server
-          image: ghcr.io/torrentdam/server:e9b37b0a2dbb856793de1fa89e28ec285fb7c8ed
+          image: ghcr.io/torrentdam/server:latest
           args:
             - "server.dht.svc.cluster.local:6881"
           ports:
