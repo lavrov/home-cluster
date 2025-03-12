@@ -16,6 +16,7 @@ spec:
       containers:
         - name: server
           image: ghcr.io/torrentdam/server:latest
+          imagePullPolicy: Always
           args:
             - "server.dht.svc.cluster.local:6881"
           ports:
