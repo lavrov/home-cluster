@@ -1,14 +1,15 @@
 apiVersion: helm.cattle.io/v1
 kind: HelmChart
 metadata:
-  name: nfs
+  name: homelab-nfs
   namespace: default
 spec:
   chart: nfs-subdir-external-provisioner
   repo: https://kubernetes-sigs.github.io/nfs-subdir-external-provisioner
   targetNamespace: default
   set:
-    nfs.server: 192.168.1.100
-    nfs.path: /mnt/disk1
-    storageClass.name: nfs
-    storageClass.provisionerName: k8s-sigs.io/second-nfs-subdir-external-provisioner
+    nfs.server: 192.168.1.200
+    nfs.path: /mnt/homelab/k8s
+    storageClass.name: homelab-nfs
+    storageClass.provisionerName: k8s-sigs.io/nfs-subdir-external-provisioner
+    storageClass.pathPattern: "${.PVC.annotations.nfs.io/storage-path}"

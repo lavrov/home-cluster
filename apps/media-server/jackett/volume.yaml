@@ -1,9 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: jackett-config-claim
+  name: jackett-config-v2
+  annotations:
+    nfs.io/storage-path: "config/jackett"
 spec:
-  storageClassName: local-path
+  storageClassName: homelab-nfs
   accessModes:
     - ReadWriteOnce
   resources:

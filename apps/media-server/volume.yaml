@@ -2,10 +2,12 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: movies
+  annotations:
+    nfs.io/storage-path: "movies"
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: nfs
+  storageClassName: homelab-nfs
   resources:
     requests:
-      storage: 100Gi
+      storage: 1T

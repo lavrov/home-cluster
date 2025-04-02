@@ -41,7 +41,7 @@ spec:
             claimName: movies
         - name: config
           persistentVolumeClaim:
-            claimName: jellyfin-config
+            claimName: jellyfin-config-v2
         - name: device-video10
           hostPath:
             path: /dev/video10

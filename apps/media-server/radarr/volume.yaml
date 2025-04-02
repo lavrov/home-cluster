@@ -1,9 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: radarr-config-claim
+  name: radarr-config-v2
+  annotations:
+    nfs.io/storage-path: "config/radarr"
 spec:
-  storageClassName: local-path
+  storageClassName: homelab-nfs
   accessModes:
     - ReadWriteOnce
   resources:

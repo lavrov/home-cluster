@@ -33,7 +33,7 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: radarr-config-claim
+            claimName: radarr-config-v2
         - name: movies
           persistentVolumeClaim:
-            claimName: movies
+            claimName: movies-v4
