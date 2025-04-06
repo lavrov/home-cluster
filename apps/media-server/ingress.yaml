@@ -37,6 +37,7 @@ spec:
     - hosts:
         - "jackett.media.lavrov.nl"
         - "radarr.media.lavrov.nl"
+        - "sonarr.media.lavrov.nl"
         - "tube.media.lavrov.nl"
         - "files.media.lavrov.nl"
       secretName: ingress-tls
@@ -59,6 +60,16 @@ spec:
             backend:
               service:
                 name: radarr
+                port:
+                  name: http
+    - host: "sonarr.media.lavrov.nl"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: sonarr
                 port:
                   name: http
     - host: "tube.media.lavrov.nl"

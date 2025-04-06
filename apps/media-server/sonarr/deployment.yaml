@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: radarr
+  name: sonarr
 spec:
   selector:
     matchLabels:
-      app: radarr
+      app: sonarr
   replicas: 1
   template:
     metadata:
       labels:
-        app: radarr
+        app: sonarr
     spec:
       containers:
-        - name: radarr
-          image: lscr.io/linuxserver/radarr:latest
+        - name: sonarr
+          image: lscr.io/linuxserver/sonarr:latest
           env:
             - name: PGID
               value: "1000"
@@ -23,7 +23,7 @@ spec:
             - name: TZ
               value: Europe/Amsterdam
           ports:
-            - containerPort: 7878
+            - containerPort: 8989
               name: http
           volumeMounts:
             - mountPath: /config
@@ -33,7 +33,7 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: radarr-config-v2
+            claimName: sonarr-config
         - name: movies
           persistentVolumeClaim:
             claimName: movies

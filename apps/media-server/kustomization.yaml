@@ -6,5 +6,6 @@ resources:
   - jellyfin
   - jackett
   - radarr
+  - sonarr
   - filebrowser
   - blackhole

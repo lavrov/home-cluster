@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: sonarr-config
+  annotations:
+    nfs.io/storage-path: "config/sonarr"
+spec:
+  storageClassName: homelab-nfs
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 10M
