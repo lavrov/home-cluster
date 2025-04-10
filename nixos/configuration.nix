@@ -14,6 +14,9 @@
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
 
+  # Support NFS filesystems.
+  boot.supportedFilesystems = [ "nfs" ];
+
   # Enable networking
   networking.networkmanager.enable = true;
   networking.hostName = "mf";
@@ -59,7 +62,7 @@
   };
 
   # Enable the OpenSSH daemon.
-  services.openssh = { 
+  services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
