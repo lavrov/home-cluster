@@ -27,9 +27,9 @@ Nix Shell is provided to facilitate deployment of workloads:
 
 The following tools are available in the shell:
    - `kubectl`
+   - `kubeseal`
    - `kustomize`
-   - `render-config`, script to print out rendered k8s configs
-   - `apply-config`, script to apply configurations to the cluster
+   - `apply`, script to apply configurations to the cluster
 
-Run `apply-config` to apply [kustomizations](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
-One can choose to apply only a certain kustomization by passing a path to it as an argument or changing the current directory to the desired kustomization and running `apply-config` without arguments.
+Run `apply .` to apply [kustomizations](https://kubernetes.io/docs/tasks/manage-kubernetes-objects/kustomization/).
+One can choose to apply only a certain kustomization by passing a path to it as an argument.
