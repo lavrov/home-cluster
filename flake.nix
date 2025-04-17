@@ -18,6 +18,7 @@
           pkgs.mkShell {
             packages = [
               pkgs.kubectl
+              pkgs.kubectx
               pkgs.kubeseal
               pkgs.kustomize
               # custom helper commands
