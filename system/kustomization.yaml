@@ -1,4 +1,5 @@
 resources:
+  - mail
   - authelia
   #  - cert-manager
 #  - wireguard.yaml
