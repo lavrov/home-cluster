@@ -37,9 +37,9 @@ session:
   inactivity: 1h
   remember_me: 1M
   cookies:
-    - domain: 'lavrov.nl'
-      authelia_url: 'https://auth.lavrov.nl'
-      default_redirection_url: 'https://www.lavrov.nl'
+    - domain: 'next.lavrov.nl'
+      authelia_url: 'https://auth.next.lavrov.nl'
+      default_redirection_url: 'https://next.lavrov.nl'
       name: 'authelia_session'
 
   redis:
