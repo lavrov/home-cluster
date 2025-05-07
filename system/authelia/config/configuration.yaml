@@ -37,9 +37,9 @@ session:
   inactivity: 1h
   remember_me: 1M
   cookies:
-    - domain: 'next.lavrov.nl'
-      authelia_url: 'https://auth.next.lavrov.nl'
-      default_redirection_url: 'https://next.lavrov.nl'
+    - domain: 'lavrov.nl'
+      authelia_url: 'https://auth.lavrov.nl'
+      default_redirection_url: 'https://lavrov.nl'
       name: 'authelia_session'
 
   redis:
@@ -60,5 +60,5 @@ notifier:
   smtp:
     host: smtp.mail.svc.cluster.local
     port: 25
-    sender: authelia@home.lavrov.org
+    sender: homelab@lavrov.nl
     disable_require_tls: true

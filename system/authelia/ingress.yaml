@@ -4,16 +4,16 @@ metadata:
   name: authelia
   namespace: authelia
   annotations:
-#    cert-manager.io/cluster-issuer: letsencrypt
-#    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: letsencrypt
+    traefik.ingress.kubernetes.io/router.tls: "true"
 spec:
-#  tls:
-#    - hosts:
-#        - "auth.lavrov.nl"
-#      secretName: auth-tls
   ingressClassName: traefik
+  tls:
+    - hosts:
+        - "auth.lavrov.nl"
+      secretName: auth-tls
   rules:
-    - host: "auth.next.lavrov.nl"
+    - host: "auth.lavrov.nl"
       http:
         paths:
           - backend:

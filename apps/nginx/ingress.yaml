@@ -3,17 +3,17 @@ kind: Ingress
 metadata:
   name: nginx
   annotations:
-#    cert-manager.io/cluster-issuer: letsencrypt
-#    traefik.ingress.kubernetes.io/router.tls: "true"
+    cert-manager.io/cluster-issuer: letsencrypt
+    traefik.ingress.kubernetes.io/router.tls: "true"
     traefik.ingress.kubernetes.io/router.middlewares: authelia-auth@kubernetescrd
 spec:
-#  tls:
-#    - hosts:
-#      - "lavrov.nl"
-#      secretName: nginx-tls
+  tls:
+    - hosts:
+      - "lavrov.nl"
+      secretName: nginx-tls
   ingressClassName: traefik
   rules:
-    - host: "next.lavrov.nl"
+    - host: "lavrov.nl"
       http:
         paths:
           - path: /
