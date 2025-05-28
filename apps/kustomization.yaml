@@ -1,6 +1,5 @@
 resources:
   - nginx
-#  - home-assistant
   - dht
   - torrentdam
   - media-server
