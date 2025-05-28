@@ -3,5 +3,5 @@ resources:
 #  - home-assistant
   - dht
   - torrentdam
-#  - media-server
+  - media-server
 #  - shadowsocks

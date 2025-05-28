@@ -21,6 +21,7 @@ access_control:
       policy: bypass
     - domain:
         - "radarr.media.lavrov.nl"
+        - "sonarr.media.lavrov.nl"
       policy: one_factor
       subject:
         - 'group:non-trusted'
