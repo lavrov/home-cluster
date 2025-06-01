@@ -35,6 +35,7 @@
     git
     vim
     curl
+    htop-vim
   ];
 
   # Set your time zone.
