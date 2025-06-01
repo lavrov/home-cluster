@@ -1,7 +1,13 @@
+namespace: authelia
 resources:
   - namespace.yaml
+  - sealed-secrets.yaml
+  - volume.yaml
+  - deployment.yaml
+  - service.yaml
   - redis.yaml
-  - authelia.yaml
+  - middleware.yaml
+  - ingress.yaml
 configMapGenerator:
   - name: config
     namespace: authelia
@@ -9,5 +15,3 @@ configMapGenerator:
       - configuration.yml=config/configuration.yaml
     options:
       disableNameSuffixHash: true
-generators:
-  - secret-generator.yaml

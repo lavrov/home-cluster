@@ -1,25 +1,25 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: nginx
+  name: authelia
+  namespace: authelia
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt
     traefik.ingress.kubernetes.io/router.tls: "true"
-    traefik.ingress.kubernetes.io/router.middlewares: authelia-auth@kubernetescrd
 spec:
+  ingressClassName: traefik
   tls:
     - hosts:
-      - "lavrov.nl"
-      secretName: nginx-tls
-  ingressClassName: traefik
+        - "auth.lavrov.nl"
+      secretName: auth-tls
   rules:
-    - host: "lavrov.nl"
+    - host: "auth.lavrov.nl"
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
+          - backend:
               service:
-                name: nginx
+                name: authelia
                 port:
                   number: 80
+            path: /
+            pathType: Prefix

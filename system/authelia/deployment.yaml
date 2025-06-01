@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: authelia
+  namespace: authelia
+spec:
+  selector:
+    matchLabels:
+      app: authelia
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: authelia
+    spec:
+      containers:
+        - name: authelia
+          image: authelia/authelia
+          env:
+            - name: TZ
+              value: Europe/Amsterdam
+          envFrom:
+            - secretRef:
+                name: authelia
+          ports:
+            - containerPort: 9091
+          volumeMounts:
+            - name: config
+              subPath: configuration.yml
+              mountPath: /config/configuration.yml
+            - name: users
+              subPath: users_database.yml
+              mountPath: /config/users_database.yml
+            - name: data
+              mountPath: /data
+      volumes:
+        - name: config
+          configMap:
+            name: config
+        - name: users
+          persistentVolumeClaim:
+            claimName: authelia-users
+        - name: data
+          persistentVolumeClaim:
+            claimName: authelia-data
