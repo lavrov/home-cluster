@@ -2,5 +2,4 @@ namespace: shadowsocks
 resources:
   - namespace.yaml
   - server.yaml
-generators:
-  - secret-generator.yaml
+  - sealed-secret.yaml
