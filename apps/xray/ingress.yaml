@@ -1,0 +1,37 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: xray-ui
+  namespace: xray
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    traefik.ingress.kubernetes.io/router.tls: "true"
+    traefik.ingress.kubernetes.io/router.middlewares: authelia-auth@kubernetescrd
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - "xray.lavrov.nl"
+        - "vpn.lavrov.nl"
+      secretName: xray-ui-tls
+  rules:
+    - host: "xray.lavrov.nl"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: xray-ui
+                port:
+                  number: 80
+    - host: "vpn.lavrov.nl"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: xray-sub
+                port:
+                  number: 80

@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: xray
+  labels:
+    app.kubernetes.io/name: xray
+    app.kubernetes.io/component: vpn

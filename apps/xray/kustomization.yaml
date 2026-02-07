@@ -1,0 +1,8 @@
+namespace: xray
+resources:
+  - namespace.yaml
+  - volume.yaml
+  - deployment.yaml
+  - services.yaml
+  - ingress.yaml
+  - networkpolicy.yaml

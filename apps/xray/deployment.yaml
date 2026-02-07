@@ -1,0 +1,57 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: xray-ui
+  namespace: xray
+  labels:
+    app: xray-ui
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: xray-ui
+  template:
+    metadata:
+      labels:
+        app: xray-ui
+    spec:
+      containers:
+        - name: xray-ui
+          image: ghcr.io/mhsanaei/3x-ui:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - name: web-ui
+              containerPort: 2053
+              protocol: TCP
+            - name: web-sub
+              containerPort: 2096
+              protocol: TCP
+            - name: xray-vless
+              containerPort: 31002
+              protocol: UDP
+          volumeMounts:
+            - name: xray-db
+              mountPath: /etc/x-ui
+          resources:
+            limits:
+              cpu: 500m
+              memory: 512Mi
+            requests:
+              cpu: 100m
+              memory: 128Mi
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 2053
+            initialDelaySeconds: 30
+            periodSeconds: 10
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 2053
+            initialDelaySeconds: 5
+            periodSeconds: 5
+      volumes:
+        - name: xray-db
+          persistentVolumeClaim:
+            claimName: xray-ui-data
