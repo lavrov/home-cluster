@@ -12,7 +12,6 @@ spec:
   tls:
     - hosts:
         - "xray.lavrov.nl"
-        - "vpn.lavrov.nl"
       secretName: xray-ui-tls
   rules:
     - host: "xray.lavrov.nl"
@@ -24,14 +23,30 @@ spec:
               service:
                 name: xray-ui
                 port:
-                  number: 80
+                  number: 2053
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: xray-sub
+  namespace: xray
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+    traefik.ingress.kubernetes.io/router.tls: "true"
+spec:
+  ingressClassName: traefik
+  tls:
+    - hosts:
+        - "vpn.lavrov.nl"
+      secretName: xray-sub-tls
+  rules:
     - host: "vpn.lavrov.nl"
       http:
         paths:
-          - path: /
+          - path: /sub
             pathType: Prefix
             backend:
               service:
                 name: xray-sub
                 port:
-                  number: 80
+                  number: 2096

@@ -9,8 +9,7 @@ spec:
   type: ClusterIP
   ports:
     - name: web-ui
-      port: 80
-      targetPort: 2053
+      port: 2053
       protocol: TCP
   selector:
     app: xray-ui
@@ -26,8 +25,7 @@ spec:
   type: ClusterIP
   ports:
     - name: web-sub
-      port: 80
-      targetPort: 2096
+      port: 2096
       protocol: TCP
   selector:
     app: xray-ui
