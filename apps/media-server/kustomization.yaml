@@ -9,3 +9,4 @@ resources:
   - sonarr
   - filebrowser
   - blackhole
+  - operator
