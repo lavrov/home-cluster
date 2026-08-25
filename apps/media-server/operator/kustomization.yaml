@@ -14,3 +14,22 @@ patches:
       - op: replace
         path: /subjects/0/namespace
         value: media-server
+  - target:
+      kind: Deployment
+      name: torrentdam-operator
+    patch: |-
+      - op: add
+        path: /spec/template/spec/volumes
+        value:
+          - name: data
+            persistentVolumeClaim:
+              claimName: movies
+  - target:
+      kind: Deployment
+      name: torrentdam-operator
+    patch: |-
+      - op: add
+        path: /spec/template/spec/containers/0/volumeMounts
+        value:
+          - name: data
+            mountPath: /data
