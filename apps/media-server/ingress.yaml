@@ -40,6 +40,7 @@ spec:
         - "sonarr.media.lavrov.nl"
         - "tube.media.lavrov.nl"
         - "files.media.lavrov.nl"
+        - "transmission.media.lavrov.nl"
       secretName: ingress-tls
   rules:
     - host: "jackett.media.lavrov.nl"
@@ -92,3 +93,13 @@ spec:
                 name: filebrowser
                 port:
                   name: http
+    - host: "transmission.media.lavrov.nl"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: torrentdam-operator
+                port:
+                  name: rpc
