@@ -32,6 +32,7 @@ access_control:
     - domain:
         - "radarr.media.lavrov.nl"
         - "sonarr.media.lavrov.nl"
+        - "transmission.media.lavrov.nl"
       policy: one_factor
       subject:
         - 'group:non-trusted'
